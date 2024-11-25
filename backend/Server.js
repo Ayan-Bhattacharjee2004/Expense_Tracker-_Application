@@ -1,10 +1,9 @@
 const express = require('express')
 require('dotenv').config();
-
 const cors = require('cors');
-
+const { readdirSync } = require('fs')
 const { db } = require('./db/db');
-require('dotenv').config()
+
 const app = express()
 
 const PORT = process.env.PORT;
@@ -16,6 +15,9 @@ app.use(cors())
 /*app.get('/', (req, res) => {
     res.send("hello Ayan")
 })*/
+
+//routes
+readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
 
 
 // Server part
