@@ -1,30 +1,28 @@
-const express = require('express')
-require('dotenv').config();
-const cors = require('cors');
-const { readdirSync } = require('fs')
-const { db } = require('./db/db');
+const express = require("express");
+require("dotenv").config();
+const cors = require("cors");
+const { readdirSync } = require("fs");
+const { db } = require("./db/db");
 
-const app = express()
+const app = express();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
-// middlewares 
-app.use(express.json())
-app.use(cors())
+// Middleware
+app.use(express.json());
+app.use(cors());
 
-/*app.get('/', (req, res) => {
-    res.send("hello Ayan")
-})*/
+// Routes
+readdirSync("./routes").map((route) =>
+    app.use("/api/v1", require("./routes/" + route))
+);
 
-//routes
-readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
-
-
-// Server part
-const Server = () => {
-    db()
+// Server function
+const startServer = () => {
+    db(); // Connect to MongoDB
     app.listen(PORT, () => {
-        console.log("listening to port", PORT)
-    })
-}
-Server()
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+};
+
+startServer();

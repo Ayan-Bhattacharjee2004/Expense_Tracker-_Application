@@ -1,7 +1,8 @@
-const router = require('express').Router()
-const{addIncome, getIncomes, deleteIncomes}=require('../controllers/Income')
+const router = require("express").Router();
+const { addIncome, getIncomes, deleteIncome } = require("../controllers/Income");
 
-router.post('/add-income',addIncome)
-    .get('get-income', getIncomes)
-    .delete('delete-income/:userId', deleteIncomes)
+router.post("/add-income", addIncome);
+router.get("/get-income", getIncomes);
+router.delete("/delete-income/:id", deleteIncome);
+
 module.exports = router;
