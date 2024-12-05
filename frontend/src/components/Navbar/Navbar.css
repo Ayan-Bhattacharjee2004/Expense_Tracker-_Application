@@ -1,0 +1,53 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f5f5f5; /* Adjust background as needed */
+    
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Let it take as much space as possible */
+  }
+  
+  .search-box input {
+    width: 300px; /* Adjust the input width */
+    height: 40px; /* Adjust the input height */
+    font-size: 18px; /* Adjust text size */
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-box svg {
+    font-size: 30px; /* Adjust icon size */
+    margin-left: 10px;
+    color: #555; /* Icon color */
+    cursor: pointer;
+  }
+  
+  .Right-secation {
+    margin-right: 25px;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .Right-secation svg {
+   
+    font-size: 30px; /* Adjust icon size */
+    cursor: pointer;
+    color: #555; /* Icon color */
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+
+
+  
